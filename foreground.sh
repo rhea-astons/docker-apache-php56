@@ -13,7 +13,7 @@ sed -i 's/Port 22/Port 7331/' /etc/ssh/sshd_config
 service ssh restart
 
 # Apache
-sed -e 's/example.com/$HOST_NAME/g' /etc/apache2/sites-avaliable/000-default.conf
+sed -i 's/example.com/$HOST_NAME/g' /etc/apache2/sites-avaliable/000-default.conf
 echo 'ServerName $HOST_NAME' >> /etc/apache2/apache2.conf
 read pid cmd state ppid pgrp session tty_nr tpgid rest < /proc/self/stat
 trap "kill -TERM -$pgrp; exit" EXIT TERM KILL SIGKILL SIGTERM SIGQUIT
